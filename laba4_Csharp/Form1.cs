@@ -13,7 +13,20 @@ namespace laba4_Csharp
             InitializeComponent();
         }
 
-        private void btnRefill_Click(object sender, EventArgs e)
+        private void UpdateQueueDisplay()
+        {
+            txtInfo.Text = "Очередь артефактов:\n";
+            foreach (var artifact in artifactQueue)
+            {
+                txtInfo.Text += artifact.GetInfo() + "\n";
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefill_Click_1(object sender, EventArgs e)
         {
             artifactQueue.Clear();
             var rnd = new Random();
@@ -35,7 +48,7 @@ namespace laba4_Csharp
             UpdateQueueDisplay();
         }
 
-        private void btnGet_Click(object sender, EventArgs e)
+        private void btnGet_Click_1(object sender, EventArgs e)
         {
             if (artifactQueue.Count > 0)
             {
@@ -47,21 +60,6 @@ namespace laba4_Csharp
                 txtOut.Text = "Пусто Q_Q";
             }
             UpdateQueueDisplay();
-        }
-
-        private void UpdateQueueDisplay()
-        {
-            txtInfo.Text = "Очередь артефактов:\n";
-            foreach (var artifact in artifactQueue)
-            {
-                txtInfo.Text += artifact.GetInfo() + "\n";
-            }
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

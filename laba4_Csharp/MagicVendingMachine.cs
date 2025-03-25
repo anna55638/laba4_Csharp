@@ -19,7 +19,7 @@ namespace laba4_Csharp
 
         public virtual string GetInfo()
         {
-            return $"Магический уровень: {MagicLevel}";
+            return $"Маг. уровень: {MagicLevel}";
         }
     }
 
