@@ -4,22 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// БУДТЕ ВНИМАТЕЛЬНЕЕ: ТУТ ДОЛЖЕН СТОЯТЬ ТОТ ЖЕ namespace что и в Program.cs
 namespace laba4_Csharp
 {
     // Базовый класс
     public class MagicalArtifact
     {
         public int MagicLevel { get; set; }
+        public string ArtifactType { get; protected set; } // Добавляем свойство для типа артефакта
 
-        public MagicalArtifact(int magicLevel)
+        public MagicalArtifact(int magicLevel, string artifactType)
         {
             MagicLevel = magicLevel;
+            ArtifactType = artifactType;
         }
 
         public virtual string GetInfo()
         {
-            return $"Маг. уровень: {MagicLevel}";
+            return $"{ArtifactType}, Маг. уровень: {MagicLevel}";
         }
     }
 
@@ -29,7 +30,8 @@ namespace laba4_Csharp
         public int Sharpness { get; set; }
         public string Element { get; set; }
 
-        public MagicSword(int magicLevel, int sharpness, string element) : base(magicLevel)
+        public MagicSword(int magicLevel, int sharpness, string element)
+            : base(magicLevel, "Меч") // Указываем тип артефакта
         {
             Sharpness = sharpness;
             Element = element;
@@ -57,7 +59,8 @@ namespace laba4_Csharp
         public int Protection { get; set; }
         public string Effect { get; set; }
 
-        public MagicAmulet(int magicLevel, int protection, string effect) : base(magicLevel)
+        public MagicAmulet(int magicLevel, int protection, string effect)
+            : base(magicLevel, "Амулет") // Указываем тип артефакта
         {
             Protection = protection;
             Effect = effect;
@@ -85,7 +88,8 @@ namespace laba4_Csharp
         public string Spell { get; set; }
         public int Duration { get; set; }
 
-        public MagicScroll(int magicLevel, string spell, int duration) : base(magicLevel)
+        public MagicScroll(int magicLevel, string spell, int duration)
+            : base(magicLevel, "Свиток") // Указываем тип артефакта
         {
             Spell = spell;
             Duration = duration;

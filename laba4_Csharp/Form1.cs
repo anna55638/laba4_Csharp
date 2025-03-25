@@ -15,10 +15,10 @@ namespace laba4_Csharp
 
         private void UpdateQueueDisplay()
         {
-            txtInfo.Text = "Очередь артефактов:\n";
+            txtInfo.Text = "Очередь артефактов:\n" + "\n";
             foreach (var artifact in artifactQueue)
             {
-                txtInfo.Text += artifact.GetInfo() + "\n";
+                txtInfo.Text += artifact.GetInfo() + "\n" + "\n";
             }
         }
         private void Form1_Load(object sender, EventArgs e)
